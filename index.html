@@ -9,7 +9,7 @@
 <body>
 <div class="card">
     <div class="faces">
-        <div class="face-grid"></div>
+        <div class="face-grid2"></div>
         <div class="face-grid"></div>
     </div>
     <h1>КАПИТАН СМОЛЛЕТТ</h1>
@@ -71,6 +71,16 @@
         height: 100%;
     }
 
+    .face-grid2 {
+        line-height: 0;
+        display: grid;
+        grid-template-columns: repeat(4, fit-content(600px));
+        grid-template-rows: repeat(5, fit-content(600px));
+    }
+    .face-grid2 div img {
+        width:100%;
+        height: 100%;
+    }
     @-webkit-keyframes opa {
         0%, 100% {
             opacity: 0;
@@ -88,23 +98,48 @@
         h1 = [150, 238, 206, 156, 277],
         w2 = [154, 132, 57, 113, 140],
         h2 = [224, 64, 156, 381, 202]
-    for (let g = 0; g<2; g++) {
-        let grd = document.getElementsByClassName('face-grid')[g]
-        for (let r = 1; r <= 5; r++) {
-            for (let c = 1; c <= 5; c++) {
-                let block = document.createElement("div")
-                block.innerHTML = `<img src='images/IMG1-${r}${c}.png'>`;
-                block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col${c} 5s ease-in-out infinite, morph-row${r} 5s ease-in-out infinite;`;
-                grd.appendChild(block);
-                block = document.createElement("div")
-                block.innerHTML = `<img src='images/IMG2-${r}${c}.png'>`;
-                block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col${c} 5s ease-in-out infinite, morph-row${r} 5s ease-in-out infinite, opa 5s ease-in-out infinite;`;
-                grd.appendChild(block);
-            }
+        w3 = [301, 168, 81, 46],
+        h3 = [100, 368, 196, 158, 205],
+        w4 = [60, 155, 254, 127],
+        h4 = [204, 92, 164, 340, 227];
+
+    let grd = document.getElementsByClassName('face-grid2')[0]
+    for (let r = 1; r <= 5; r++) {
+        for (let c = 1; c <= 5; c++) {
+            let block = document.createElement("div")
+            block.innerHTML = `<img src='images/IMG3-${r}${c}.png'>`;
+            block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col2${c} 5s ease-in-out infinite, morph-row2${r} 5s ease-in-out infinite;`;
+            grd.appendChild(block);
+            block = document.createElement("div")
+            block.innerHTML = `<img src='images/IMG4-${r}${c}.png'>`;
+            block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col2${c} 5s ease-in-out infinite, morph-row2${r} 5s ease-in-out infinite, opa 5s ease-in-out infinite;`;
+            grd.appendChild(block);
         }
     }
 
     let style = document.createElement('style');
+    document.head.appendChild(style);
+    for (let i=1; i<=4; i++) {
+        style.sheet.insertRule(`@keyframes morph-col2${i} { 0%, 100% {width: ${w3[i - 1]}px;}45%, 55% {width: ${w4[i - 1]}px;}`);
+    }
+    for (let i=1; i<=5; i++) {
+        style.sheet.insertRule(`@keyframes morph-row2${i} { 0%, 100% {height: ${h3[i - 1]}px;;}45%, 55% {height: ${h4[i - 1]}px;}}`);
+    }
+    grd = document.getElementsByClassName('face-grid')[0]
+    for (let r = 1; r <= 5; r++) {
+        for (let c = 1; c <= 5; c++) {
+            let block = document.createElement("div")
+            block.innerHTML = `<img src='images/IMG1-${r}${c}.png'>`;
+            block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col${c} 5s ease-in-out infinite, morph-row${r} 5s ease-in-out infinite;`;
+            grd.appendChild(block);
+            block = document.createElement("div")
+            block.innerHTML = `<img src='images/IMG2-${r}${c}.png'>`;
+            block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col${c} 5s ease-in-out infinite, morph-row${r} 5s ease-in-out infinite, opa 5s ease-in-out infinite;`;
+            grd.appendChild(block);
+        }
+    }
+
+    style = document.createElement('style');
     document.head.appendChild(style);
     for (let i=1; i<=5; i++) {
         style.sheet.insertRule(`@keyframes morph-col${i} { 0%, 100% {width: ${w1[i - 1]}px;}45%, 55% {width: ${w2[i - 1]}px;}`);
