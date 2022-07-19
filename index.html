@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - Portfolio</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="card">
+    <div class="faces">
+        <div class="face-grid"></div>
+        <div class="face-grid"></div>
+    </div>
+    <h1>КАПИТАН СМОЛЛЕТТ</h1>
+    <span>
+        Старый моряк и солдат. <br/>Говорит правду в глаза, отчего <br/> и страдает. Характер прескверный. Не женат.
+    </span>
+</div>
+
+
+</body>
+
+<style>
+    .faces {
+        display: flex;
+        gap:16px;
+        position: absolute;
+        transform: translate( -28%, -28%) scale(0.4);
+    }
+    .card {
+        width:1000px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    .card h1 {
+        padding-left: 550px;
+        padding-top: 140px;
+        width: 300px;
+        text-align: right;
+        font-size: 100px;
+        color: #312A20;
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 700;
+    }
+    .card span {
+        letter-spacing: 1px;
+        word-spacing: 1rem;
+        padding: 20px 50px;
+        width:100%;
+        font-size: 65px;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-family: 'Yanone Kaffeesatz';
+    }
+    body{
+        filter: sepia(60%);
+        background: linear-gradient(153deg, rgba(218,196,173,1) 0%, rgba(253,254,223,1) 49%, rgba(255,254,233,1) 100%);;
+        height: 100vh;
+    }
+    .face-grid {
+        line-height: 0;
+        display: grid;
+        grid-template-columns: repeat(5, fit-content(600px));
+        grid-template-rows: repeat(5, fit-content(600px));
+    }
+    .face-grid div img {
+        width:100%;
+        height: 100%;
+    }
+
+    @-webkit-keyframes opa {
+        0%, 100% {
+            opacity: 0;
+        }
+
+        45%, 55% {
+            opacity: 1;
+        }
+    }
+
+</style>
+
+<script>
+    const w1=[110, 100, 180, 126, 80],
+        h1 = [150, 238, 206, 156, 277],
+        w2 = [154, 132, 57, 113, 140],
+        h2 = [224, 64, 156, 381, 202]
+    for (let g = 0; g<2; g++) {
+        let grd = document.getElementsByClassName('face-grid')[g]
+        for (let r = 1; r <= 5; r++) {
+            for (let c = 1; c <= 5; c++) {
+                let block = document.createElement("div")
+                block.innerHTML = `<img src='images/IMG1-${r}${c}.png'>`;
+                block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col${c} 5s ease-in-out infinite, morph-row${r} 5s ease-in-out infinite;`;
+                grd.appendChild(block);
+                block = document.createElement("div")
+                block.innerHTML = `<img src='images/IMG2-${r}${c}.png'>`;
+                block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col${c} 5s ease-in-out infinite, morph-row${r} 5s ease-in-out infinite, opa 5s ease-in-out infinite;`;
+                grd.appendChild(block);
+            }
+        }
+    }
+
+    let style = document.createElement('style');
+    document.head.appendChild(style);
+    for (let i=1; i<=5; i++) {
+        style.sheet.insertRule(`@keyframes morph-col${i} { 0%, 100% {width: ${w1[i - 1]}px;}45%, 55% {width: ${w2[i - 1]}px;}`);
+        style.sheet.insertRule(`@keyframes morph-row${i} { 0%, 100% {height: ${h1[i - 1]}px;;}45%, 55% {height: ${h2[i - 1]}px;}}`);
+    }
+</script>
+</html>
