@@ -1,3 +1,10 @@
+function addOldEffectImage(element) {
+    let old = document.createElement("img");
+    old.className = 'old';
+    old.src = "images/old.jpg";
+    element.appendChild(old)
+}
+
 const scale = 0.4;
 const w1=[110, 100, 180, 126, 80].map(x => x*scale),
     h1 = [150, 238, 206, 156, 277].map(x => x*scale),
@@ -17,10 +24,7 @@ for (let r = 1; r <= 5; r++) {
         grd.appendChild(block);
     }
 }
-let old = document.createElement("img");
-old.className = 'old';
-old.src = "images/old.jpg";
-grd.appendChild(old)
+addOldEffectImage(grd);
 
 grd = document.getElementsByClassName('face-grid')[0]
 for (let r = 1; r <= 5; r++) {
@@ -31,10 +35,7 @@ for (let r = 1; r <= 5; r++) {
         grd.appendChild(block);
     }
 }
-old = document.createElement("img");
-old.className = 'old';
-old.src = "images/old.jpg";
-grd.appendChild(old)
+addOldEffectImage(grd);
 
 let style = document.createElement('style');
 document.head.appendChild(style);
