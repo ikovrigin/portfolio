@@ -4,8 +4,12 @@ body{
     background-size: cover;
     height: 100vh;
     display: flex;
-    font-family: 'Yanone Kaffeesatz';
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     text-transform: uppercase;
+}
+
+img:not([src]) {
+    visibility: hidden;
 }
 
 .card {
@@ -43,28 +47,27 @@ body{
     filter: sepia(50%);
 }
 
-.face-grid {
+.face {
     line-height: 0;
     display: grid;
-    grid-template-columns: repeat(5, min-content);
-    grid-template-rows: repeat(5, min-content);
-    transform: rotate(1deg);
+    background-size: contain;
 }
-.face-grid div img {
+
+.face div img {
     width:100%;
     height: 100%;
 }
 
-.face-grid2 {
-    line-height: 0;
-    display: grid;
-    grid-template-columns: repeat(4, fit-content(600px));
-    grid-template-rows: repeat(5, fit-content(600px));
-    transform: rotate(-0.5deg);
+.grid {
+    grid-template-columns: repeat(5, min-content);
+    grid-template-rows: repeat(5, min-content);
+    transform: rotate(1deg);
 }
-.face-grid2 div img {
-    width:100%;
-    height: 100%;
+
+.grid2 {
+    grid-template-columns: repeat(4, min-content);
+    grid-template-rows: repeat(5, min-content);
+    transform: rotate(-0.5deg);
 }
 
 .opa {
