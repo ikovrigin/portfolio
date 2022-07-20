@@ -6,6 +6,7 @@ function addOldEffectImage(element) {
 }
 
 const scale = 0.4;
+const animation_duration = 7;
 const w1=[110, 100, 180, 126, 80].map(x => x*scale),
     h1 = [150, 238, 206, 156, 277].map(x => x*scale),
     w2 = [154, 132, 57, 113, 140].map(x => x*scale),
@@ -20,7 +21,7 @@ for (let r = 1; r <= 5; r++) {
     for (let c = 1; c <= 4; c++) {
         let block = document.createElement("div")
         block.innerHTML = `<img src='images/IMG3-${r}${c}.jpg'> <img src='images/IMG4-${r}${c}.jpg' class="opa"'>`;
-        block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col2${c} 5s ease-in-out infinite, morph-row2${r} 5s ease-in-out infinite;`;
+        block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col2${c} ${animation_duration}s ease-in-out infinite, morph-row2${r} ${animation_duration}s ease-in-out infinite;`;
         grd.appendChild(block);
     }
 }
@@ -31,7 +32,7 @@ for (let r = 1; r <= 5; r++) {
     for (let c = 1; c <= 5; c++) {
         let block = document.createElement("div")
         block.innerHTML = `<img src='images/IMG1-${r}${c}.jpg'> <img src='images/IMG2-${r}${c}.jpg' class="opa">`;
-        block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col${c} 5s ease-in-out infinite, morph-row${r} 5s ease-in-out infinite;`;
+        block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col${c} ${animation_duration}s ease-in-out infinite, morph-row${r} ${animation_duration}s ease-in-out infinite;`;
         grd.appendChild(block);
     }
 }
@@ -40,13 +41,13 @@ addOldEffectImage(grd);
 let style = document.createElement('style');
 document.head.appendChild(style);
 for (let i=1; i<=4; i++) {
-    style.sheet.insertRule(`@keyframes morph-col2${i} { 0%, 100% {width: ${w3[i - 1]}px;}45%, 55% {width: ${w4[i - 1]}px;}`);
+    style.sheet.insertRule(`@keyframes morph-col2${i} { 0%, 5%, 95%, 100% {width: ${w3[i - 1]}px;} 45%, 55% {width: ${w4[i - 1]}px;}`);
 }
 for (let i=1; i<=5; i++) {
-    style.sheet.insertRule(`@keyframes morph-row2${i} { 0%, 100% {height: ${h3[i - 1]}px;;}45%, 55% {height: ${h4[i - 1]}px;}}`);
+    style.sheet.insertRule(`@keyframes morph-row2${i} { 0%, 5%, 95%, 100% {height: ${h3[i - 1]}px;;} 45%, 55% {height: ${h4[i - 1]}px;}}`);
 }
 for (let i=1; i<=5; i++) {
-    style.sheet.insertRule(`@keyframes morph-col${i} { 0%, 100% {width: ${w1[i - 1]}px;}45%, 55% {width: ${w2[i - 1]}px;}`);
-    style.sheet.insertRule(`@keyframes morph-row${i} { 0%, 100% {height: ${h1[i - 1]}px;;}45%, 55% {height: ${h2[i - 1]}px;}}`);
+    style.sheet.insertRule(`@keyframes morph-col${i} { 0%, 5%, 95%, 100% {width: ${w1[i - 1]}px;} 45%, 55% {width: ${w2[i - 1]}px;}`);
+    style.sheet.insertRule(`@keyframes morph-row${i} { 0%, 5%, 95%, 100% {height: ${h1[i - 1]}px;;} 45%, 55% {height: ${h2[i - 1]}px;}}`);
 }
-
+style.sheet.insertRule(`body { --animation-duration: ${animation_duration}s}`);
