@@ -9,8 +9,6 @@ const w2=[110, 100, 180, 126, 80],
     w3 = [60, 155, 254, 127],
     h3 = [204, 92, 164, 340, 227];
 
-images = [{w: [110, 100, 180, 126, 80], h: [150, 238, 206, 156, 277], src: 'images/img1.png'}]
-
 function addOldEffectImage(element) {
     let old = document.createElement("img");
     old.className = 'old';
@@ -32,10 +30,10 @@ async function setImagePiece(target, image, x, y, w, h, scale = 1) {
     target.src = canvas.toDataURL()
 }
 
-image3 = getImage('images/img3.png');
-image4 = getImage('images/img4.png');
+image3 = getImage('images/img3.jpg');
+image4 = getImage('images/img4.jpg');
 let grd = document.getElementsByClassName('grid2')[0]
-grd.style.backgroundImage = "url('images/img3.png')"
+grd.style.backgroundImage = "url('images/img3.jpg')"
 for (let r = 1, y1 = 0, y2 = 0; r <= 5; y1 += h3[r-1], y2 += h4[r-1], r++) {
     for (let c = 1, x1 = 0, x2 = 0; c <= 4; x1 += w3[c-1], x2 += w4[c-1], c++) {
         let block = document.createElement("div");
@@ -52,10 +50,10 @@ for (let r = 1, y1 = 0, y2 = 0; r <= 5; y1 += h3[r-1], y2 += h4[r-1], r++) {
 }
 addOldEffectImage(grd);
 
-image1 = getImage('images/img1.png');
-image2 = getImage('images/img2.png');
+image1 = getImage('images/img1.jpg');
+image2 = getImage('images/img2.jpg');
 grd = document.getElementsByClassName('grid')[0]
-grd.style.backgroundImage = "url('images/img1.png')"
+grd.style.backgroundImage = "url('images/img1.jpg')"
 for (let r = 1, y1 = 0, y2 = 0; r <= 5; y1 += h1[r-1], y2 += h2[r-1], r++) {
     for (let c = 1, x1 = 0, x2 = 0; c <= 5; x1 += w1[c-1], x2 += w2[c-1], c++) {
         let block = document.createElement("div");
