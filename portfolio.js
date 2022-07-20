@@ -19,7 +19,7 @@ let grd = document.getElementsByClassName('face-grid2')[0]
 for (let r = 1; r <= 5; r++) {
     for (let c = 1; c <= 4; c++) {
         let block = document.createElement("div")
-        block.innerHTML = `<img src='images/IMG3-${r}${c}.png'> <img src='images/IMG4-${r}${c}.png' class="opa"'>`;
+        block.innerHTML = `<img src='images/IMG3-${r}${c}.jpg'> <img src='images/IMG4-${r}${c}.jpg' class="opa"'>`;
         block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col2${c} 5s ease-in-out infinite, morph-row2${r} 5s ease-in-out infinite;`;
         grd.appendChild(block);
     }
@@ -30,7 +30,7 @@ grd = document.getElementsByClassName('face-grid')[0]
 for (let r = 1; r <= 5; r++) {
     for (let c = 1; c <= 5; c++) {
         let block = document.createElement("div")
-        block.innerHTML = `<img src='images/IMG1-${r}${c}.png'> <img src='images/IMG2-${r}${c}.png' class="opa">`;
+        block.innerHTML = `<img src='images/IMG1-${r}${c}.jpg'> <img src='images/IMG2-${r}${c}.jpg' class="opa">`;
         block.style = `grid-row:${r}; grid-column:${c}; animation: morph-col${c} 5s ease-in-out infinite, morph-row${r} 5s ease-in-out infinite;`;
         grd.appendChild(block);
     }
