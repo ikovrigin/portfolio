@@ -20,14 +20,12 @@ function getImage(url) {
     return new Promise(r => { let i = new Image(); i.onload = (() => r(i)); i.src = url; });
 }
 
-async function setImagePiece(target, image, x, y, w, h, scale = 1) {
-    const canvas = document.createElement('canvas');
+async function setImagePiece(canvas, image, x, y, w, h, scale = 1) {
     canvas.width = w * scale;
     canvas.height = h * scale;
     const ctx = canvas.getContext('2d');
     let img = await image;
     ctx.drawImage(img, x, y, w, h, 0, 0, w*scale, h*scale);
-    target.src = canvas.toDataURL()
 }
 
 image3 = getImage('images/img3.jpg');
@@ -37,8 +35,8 @@ grd.style.backgroundImage = "url('images/img3.jpg')"
 for (let r = 1, y1 = 0, y2 = 0; r <= 5; y1 += h3[r-1], y2 += h4[r-1], r++) {
     for (let c = 1, x1 = 0, x2 = 0; c <= 4; x1 += w3[c-1], x2 += w4[c-1], c++) {
         let block = document.createElement("div");
-        let img1 = document.createElement('img');
-        let img2 = document.createElement('img');
+        let img1 = document.createElement('canvas');
+        let img2 = document.createElement('canvas');
         img2.className="opa"
         block.appendChild(img1);
         block.appendChild(img2);
@@ -57,8 +55,8 @@ grd.style.backgroundImage = "url('images/img1.jpg')"
 for (let r = 1, y1 = 0, y2 = 0; r <= 5; y1 += h1[r-1], y2 += h2[r-1], r++) {
     for (let c = 1, x1 = 0, x2 = 0; c <= 5; x1 += w1[c-1], x2 += w2[c-1], c++) {
         let block = document.createElement("div");
-        let img1 = document.createElement('img');
-        let img2 = document.createElement('img');
+        let img1 = document.createElement('canvas');
+        let img2 = document.createElement('canvas');
         img2.className="opa";
         block.appendChild(img1);
         block.appendChild(img2);

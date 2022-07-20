@@ -8,10 +8,6 @@ body{
     text-transform: uppercase;
 }
 
-img:not([src]) {
-    visibility: hidden;
-}
-
 .card {
     width:1000px;
     margin: auto;
@@ -53,7 +49,7 @@ img:not([src]) {
     background-size: contain;
 }
 
-.face div img {
+.face div canvas {
     width:100%;
     height: 100%;
 }
