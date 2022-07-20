@@ -4,6 +4,8 @@ body{
     background-size: cover;
     height: 100vh;
     display: flex;
+    font-family: 'Yanone Kaffeesatz';
+    text-transform: uppercase;
 }
 
 .card {
@@ -25,7 +27,6 @@ body{
     text-align: left;
     font-size: 110px;
     color: #312A20;
-    font-family: 'Yanone Kaffeesatz';
     font-weight: 700;
     width: min-content;
 }
@@ -34,8 +35,6 @@ body{
     word-spacing: 1rem;
     font-size: 65px;
     font-weight: 400;
-    text-transform: uppercase;
-    font-family: 'Yanone Kaffeesatz';
 }
 
 .faces {
@@ -47,8 +46,8 @@ body{
 .face-grid {
     line-height: 0;
     display: grid;
-    grid-template-columns: repeat(5, fit-content(600px));
-    grid-template-rows: repeat(5, fit-content(600px));
+    grid-template-columns: repeat(5, min-content);
+    grid-template-rows: repeat(5, min-content);
     transform: rotate(1deg);
 }
 .face-grid div img {
